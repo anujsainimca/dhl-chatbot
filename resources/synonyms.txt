@@ -1,0 +1,21 @@
+current_status:current_status, status, position, condition
+details:details, inside_information
+parcel:package, parcel, portion, share, tract, piece_of_land, piece_of_ground, parcel_of_land, bundle, packet
+rate:rate, charge_per_unit, pace
+send:send
+time:time, clip, clock_time, fourth_dimension, meter, metre, prison_term, sentence
+weight:weight, free_weight, exercising_weight, weightiness, system_of_weights, weight_unit, weighting
+current_status:current_status
+details:details, inside_information
+parcel:package, parcel, portion, share, tract, piece_of_land, piece_of_ground, parcel_of_land, bundle, packet
+rate:rate, charge_per_unit, pace
+send:send
+time:time, clip, clock_time, fourth_dimension, meter, metre, prison_term, sentence
+weight:weight, free_weight, exercising_weight, weightiness, system_of_weights, weight_unit, weighting
+current_status:current_status
+details:details, inside_information
+parcel:package, parcel, portion, share, tract, piece_of_land, piece_of_ground, parcel_of_land, bundle, packet
+rate:rate, charge_per_unit, pace
+send:send
+time:time, clip, clock_time, fourth_dimension, meter, metre, prison_term, sentence
+weight:weight, free_weight, exercising_weight, weightiness, system_of_weights, weight_unit, weighting

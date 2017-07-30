@@ -1,0 +1,5 @@
+"<ADVP> <ADJP> <PP> <NP>"	"<ADVP : Intent> <ADJP> <PP> <NP : Entity>"
+"<VP> <PP> <NP>"	"<VP : Intent> <PP> <NP : Entity>"
+"<VP> <NP>", "<VP : Intent> <NP : Entity>"
+"<ADVP> <VP> <VP>"	"<ADVP> <VP : Entity> <VP : Intent>"
+"<ADVP> <O> <NP> <VP>"	"<ADVP> <O> <NP : Entity> <VP : Intent>"
