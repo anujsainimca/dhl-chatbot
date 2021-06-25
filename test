@@ -1,0 +1,137 @@
+UI Labeling Interface Requirements 
+
+ 
+
+Overview 
+
+The ability to manually annotate documents and to review existing tags is crucial to evaluating and improving NLP applications.  The manually created tags can be used as training data to improved Supervised Learning algorithms.  They can also be used as validation and test sets to compare performance across different approaches, hyperparameters, and timeframes (model drift). 
+
+This tool and its output could be used during model/algo development prior to production deployment.  It could also be used periodically after production deployment for ongoing model/algo validation and QA. 
+
+An annotation tool could also be used to correct mislabeled data in the Production database, but our understanding is this is out of scope for our purposes. 
+
+Several open source tools exist offering varying subsets of the desired annotation functionality e.g. INCEpTION and BRAT, and Doccano, and perhaps a survey of what is available is warranted. 
+
+ 
+
+High Level Requirements 
+
+Load, Configure and Save the set of tags, and the set of resolution services to use. 
+
+Load a File or a Set of Files from File System (Text or JSON) or from Data Store e.g. ElasticSearch. 
+
+View Documents with Existing Tags and Resolved Entity Information 
+
+Add, Change, And Remove Tags 
+
+Add, Change, And Remove Resolved Entity Information 
+
+Save/Persist File(s) and Updated Tags and Resolved Entity Information as JSON to File System or to Data Store e.g. Elastic Search 
+
+Compare and Generate Metrics on one set of tags versus a different set of Tags on the same Document or Document Set. 
+
+ 
+
+Requirements 
+
+Load, Configure and Save the set of tags, and the set of resolution services to use. 
+
+We can load a preconfigured list of tag names/types allowed for this session via a  
+
+Load->Config menu option. 
+
+We can create or edit the list of tag names/types allowed for this session. 
+
+We can save the list of tag names/types allowed for this session via a Save->Config menu option. 
+
+We can load the resolution service URI for each tag type for this session via a  
+
+Load->Config menu option. 
+
+We can manually enter/edit the resolution service URI for each tag type for this session. 
+
+We can save the list of resolution service URIs for this session via a Save->Config menu option. 
+
+Load a File or a Set of Files from File System (Text or JSON) or from Data Store e.g. ElasticSearch. 
+
+Load plain text (untagged) file(s) from the file system via a File->Open->Text menu option. 
+
+Load specially formatted JSON file(s) from the file system that include raw text, existing tags and resolved entity information via a File->Open->JSON menu option. 
+
+Load documents, with existing tags and resolved entity information, from ElasticSearch via Document Id(s), or Search Filters. 
+
+The loaded documents are then displayed in a list for individual selection.  Alternatively, the first document is displayed with forward and backward buttons to navigate through the set. 
+
+Question: Would it be useful to load CONLL format? 
+
+View Documents with Existing Tags and Resolved Entity Information 
+
+When a document is selected from the loaded document list, it is displayed in a document viewer window. 
+
+The text is not editable. 
+
+If tags are already present they are highlighted in different colors according to tag type. 
+
+If entity information is already present it is displayed next to the tagged entity. 
+
+The user can navigate across pages of documents using “Previous Page” and “Next Page” buttons.  Alternatively a scroll bar will allow scrolling through a document that is too large to display all at once. 
+
+The user can navigate across documents using “Previous Document” and “Next Document” buttons. 
+
+Add, Change, And Remove Tags 
+
+The user can highlight an untagged word or phrase and be presented with a dropdown featuring the list of tags available in this session.   
+
+When a tag is added, the user will have the opportunity to resolve the entity as well (See 5 below) 
+
+There will be a text box for the user to add a completely new tag which will be added to the session configuration. 
+
+The user can highlight a tagged word or phrase and be presented with a dropdown featuring the list of tags available in this session.  The existing tag would be preselected. 
+
+When the tag is changed the user will have the opportunity to resolve the new entity as well (See 5 below) 
+
+There will be a text box for the user to add a completely new tag which will be added to the session configuration. 
+
+There will be an X next to each existing tag which the user can click to remove the existing tag. 
+
+If a tag is removed any entity resolution information will be removed as well. 
+
+Preexisting tags, new tags and edited tags will be presented in differing colors or color intensities to enable identification. 
+
+Add, Change, And Remove Resolved Entity Information 
+
+Upon addition or edit of a tag, the user will be prompted to select the correct resolution. 
+
+A dropdown will display the top ‘n’ resolutions for the user. 
+
+If resolution is unsuccessful or the user is not satisfied, there will also be a text box with auto-completion that the user can use to manually perform/correct the resolution. 
+
+The user can change the resolution information on an existing tag without changing the tag by clicking on the existing entity information box.  They will be presented with the same dropdown interface described in 5b and 5c above. 
+
+Preexisting, New, and Edited entity information will be displayed/highlighted in such as a way to easily differentiate them. 
+
+Question: Should it be possible to leave entity info for new tags blank or remove existing entity info and leave it blank??? 
+
+Save/Persist File(s) and Updated Tags and Resolved Entity Information as JSON or CONLL to File System or to Data Store e.g. Elastic Search 
+
+The user can save individual tagged files or batches of files as JSON containing the latest tags and entity resolution information. 
+
+It can be saved to the File System via a Save->File(s)->JSON menu option. 
+
+The user can save the tagged document to a “scratch” ElasticSearch Index. 
+
+There would be a Save->File(s)->ElasticSearch menu option. 
+
+The user can export the tagged documents to the file system in a format suitable for NER training e.g. two-column CONLL (or BIO) format. 
+
+There would be a Save->File(s)->CONLL menu option. 
+
+Compare and Generate Metrics on one set of tags versus a different set of Tags on the same Document or Document Set. 
+
+The User can request comparison metrics between the tags currently loaded in the interface, and tags for the exact same document set either from JSON/CONLL file(s) on the filesystem or via doc ids in Elastic Search. 
+
+The evaluation will provide Overall Accuracy, Precision and Recall. 
+
+The evaluation can provide a Confusion Matrix as well. 
+
+Question: Should we provide metrics on entity resolution as well? 
